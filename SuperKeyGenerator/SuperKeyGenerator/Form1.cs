@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace SuperKeyGenerator
 {
     public partial class Form1 : Form
     {
         private string key1 = "SKG";
-        private string key2 = "SkgCrypt@";
 
         public Form1()
         {
@@ -25,41 +25,24 @@ namespace SuperKeyGenerator
         {
             //Load Event
             label6.Text = "Ver.1.0";
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 4; i++)
             {
-                key1 += System.Web.Security.Membership.GeneratePassword(128, 0);
-            }
-
-            for (int i = 0; i < 50; i++)
-            {
-                key2 += System.Web.Security.Membership.GeneratePassword(128, 0);
+                key1 += System.Web.Security.Membership.GeneratePassword(5, 0);
             }
 
             textBox2.Text = key1;
-            textBox3.Text = key2;
+            textBox3.Text = ":SkG@cRYpt:";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //Random Key ReGen
             key1 = "SKG";
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 4; i++)
             {
-                key1 += System.Web.Security.Membership.GeneratePassword(128, 0);
+                key1 += System.Web.Security.Membership.GeneratePassword(5, 0);
             }
             textBox2.Text = key1;
-            return;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //Crypt Key ReGen
-            key2 = "SkgCrypt@";
-            for (int i = 0; i < 50; i++)
-            {
-                key2 += System.Web.Security.Membership.GeneratePassword(128, 0);
-            }
-            textBox3.Text = key2;
             return;
         }
 
@@ -95,6 +78,19 @@ namespace SuperKeyGenerator
                 DialogResult dr = MessageBox.Show("The file already exists.\nDo you want to continue?", "continue?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dr == DialogResult.No) return;
             }
+
+            string password = textBox3.Text + textBox1.Text + textBox2.Text + textBox3.Text;
+            SHA256 sha256 = SHA256.Create();
+            byte[] encoded = Encoding.UTF8.GetBytes(password);
+            byte[] hash = sha256.ComputeHash(encoded);
+            string hashed = string.Concat(hash.Select(b => $"{b:x2}"));
+
+            Encoding enc = Encoding.GetEncoding("UTF-8");
+            StreamWriter writer = new StreamWriter((textBox4.Text), false, enc);
+            writer.WriteLine(hashed);
+            writer.Close();
+
+            MessageBox.Show("Generated!", "Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
 
@@ -118,5 +114,11 @@ namespace SuperKeyGenerator
             Application.Exit();
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            linkLabel1.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://github.com/dekotan24/super_key_gen");
+            return;
+        }
     }
 }

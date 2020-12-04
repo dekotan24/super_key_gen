@@ -1,0 +1,9 @@
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\bin\Release\SuperKeyGenerator.exe.config
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\bin\Release\SuperKeyGenerator.exe
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\bin\Release\SuperKeyGenerator.pdb
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\obj\Release\SuperKeyGenerator.csprojAssemblyReference.cache
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\obj\Release\SuperKeyGenerator.Form1.resources
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\obj\Release\SuperKeyGenerator.Properties.Resources.resources
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\obj\Release\SuperKeyGenerator.csproj.GenerateResource.cache
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\obj\Release\SuperKeyGenerator.exe
+C:\Users\fanta\Documents\App\super_key_gen\SuperKeyGenerator\SuperKeyGenerator\obj\Release\SuperKeyGenerator.pdb
